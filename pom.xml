@@ -12,7 +12,6 @@
     <packaging>pom</packaging>
 
     <name>pet-clinic</name>
-
     <description>Pet clinic</description>
 
 
@@ -29,7 +28,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>11</java.version>
 
-        <start-class>com.shingeru.com.shingeru.petclinic.PetClinicApplication</start-class>
+        <start-class>com.shingeru.petclinic.PetClinicApplication</start-class>
 
     </properties>
 
