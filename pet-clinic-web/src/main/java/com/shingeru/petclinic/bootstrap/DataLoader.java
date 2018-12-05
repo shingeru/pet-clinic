@@ -1,10 +1,7 @@
 package com.shingeru.petclinic.bootstrap;
 
 import com.shingeru.petclinic.model.*;
-import com.shingeru.petclinic.services.OwnerService;
-import com.shingeru.petclinic.services.PetTypeService;
-import com.shingeru.petclinic.services.SpecialityService;
-import com.shingeru.petclinic.services.VetService;
+import com.shingeru.petclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,14 +14,17 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialitesService;
+    private final VisitService visitService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialitesService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
+                      SpecialityService specialitesService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
-
         this.specialitesService = specialitesService;
+        this.visitService = visitService;
     }
+
 
     @Override
     public void run(String... args) throws Exception {
@@ -110,6 +110,16 @@ public class DataLoader implements CommandLineRunner {
 
 
         vetService.save(vet2);
+
+        Visit visit1 = new Visit();
+        visit1.setPet(fionaPet);
+        visit1.setDate(LocalDate.now());
+        visit1.setDescription("Sneezy cat...");
+
+        visitService.save(visit1);
+
+
+
 
         System.out.println("Loading vets..");
     }
