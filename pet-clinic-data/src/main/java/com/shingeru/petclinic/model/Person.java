@@ -1,11 +1,13 @@
 package com.shingeru.petclinic.model;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
-@Data
+@Getter
+@Setter
 @MappedSuperclass
 public class Person extends BaseEntity{
 
