@@ -9,6 +9,7 @@ import java.util.Set;
 
 @Service
 @Profile({"default","map"})
+
 public class PetTypeMapService extends AbstractMapService<PetType, Long> implements PetTypeService {
 
     @Override
