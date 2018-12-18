@@ -8,6 +8,8 @@ import com.shingeru.petclinic.services.PetTypeService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -30,6 +32,20 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
     @Override
     public Owner findById(Long id) {
         return super.findById(id);
+    }
+
+    @Override
+    public List<Owner> findByLastNameLike(String lastName) {
+        //todo - impl
+
+        List<Owner> owners = new ArrayList<>();
+
+        this.findAll().forEach(owner -> {
+            if(owner.getLastName().equalsIgnoreCase(lastName))
+                owners.add(owner);
+        });
+
+        return owners;
     }
 
     @Override
