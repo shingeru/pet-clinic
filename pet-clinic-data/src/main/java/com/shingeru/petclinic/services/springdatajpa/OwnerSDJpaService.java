@@ -18,6 +18,11 @@ import java.util.Set;
 public class OwnerSDJpaService implements OwnerService {
 
     @Override
+    public List<Owner> findAllByLastNameLike(String lastName) {
+        return ownerRepository.findAllByLastNameLike(lastName);
+    }
+
+    @Override
     public List<Owner> findByLastNameLike(String lastName) {
         return ownerRepository.findByLastNameLike(lastName);
     }
